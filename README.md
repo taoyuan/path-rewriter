@@ -13,6 +13,7 @@ $ npm install --save path-rewriter
 Rewrite using a regular expression, rewriting `/i123` to `/items/123`.
 
 ```js
+var Rewriter = require('path-rewriter'); 
 var rewriter = new Rewriter();
 rewriter.rule(/^\/i(\w+)/, '/items/$1');
 console.log(rewriter.rewrite('/i123'));  // '/items/123'
@@ -22,6 +23,7 @@ Rewrite using rule parameters, references may be named
 or numeric. For example rewrite `/foo..bar` to `/commits/foo/to/bar`:
 
 ```js
+var Rewriter = require('path-rewriter');
 var rewriter = new Rewriter();
 rewriter.rule('/:src..:dst', '/commits/$1/to/$2');
 console.log(rewriter.rewrite('/foo..bar'));  // '/commits/foo/to/bar'
@@ -36,6 +38,7 @@ for example `/js/vendor/jquery.js` would become
 `/public/assets/js/vendor/jquery.js`:
 
 ```js
+var Rewriter = require('path-rewriter');
 var rewriter = new Rewriter();
 rewriter.rule('/js/*', '/public/assets/js/$1');
 console.log(rewriter.rewrite('/js/vendor/jquery.js'));  // '/public/assets/js/vendor/jquery.js'
@@ -46,6 +49,7 @@ The regular expression is applied to the full url, so the query string
 can be modified as well:
 
 ```js
+var Rewriter = require('path-rewriter');
 var rewriter = new Rewriter();
 rewriter.rule('/file\\?param=:param', '/file/:param');
 console.log(rewriter.rewrite('/file?param=foo'));  // '/file/foo'
