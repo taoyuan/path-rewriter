@@ -9,10 +9,7 @@
     "email": "towyuan@outlook.com",
     "url": ""
   },
-  "files": [
-    "lib"
-  ],
-  "main": "lib/index.js",
+  "main": "rewriter.js",
   "keywords": [
     "path",
     "url",
