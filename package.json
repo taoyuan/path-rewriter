@@ -1,8 +1,8 @@
 {
   "name": "path-rewriter",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A path rewriter for node.js",
-  "homepage": "",
+  "homepage": "https://github.com/taoyuan/path-rewriter",
   "repository": "taoyuan/path-rewriter",
   "author": {
     "name": "Tao Yuan",
@@ -19,6 +19,10 @@
     "rewrite",
     "rewriter"
   ],
+  "dependencies": {
+    "debug": "^2.2.0",
+    "path-to-regexp": "^1.2.0"
+  },
   "devDependencies": {
     "chai": "^3.2.0",
     "gulp": "^3.6.0",
@@ -37,9 +41,5 @@
     "prepublish": "gulp prepublish",
     "test": "gulp"
   },
-  "license": "MIT",
-  "dependencies": {
-    "debug": "^2.2.0",
-    "path-to-regexp": "^1.2.0"
-  }
+  "license": "MIT"
 }
