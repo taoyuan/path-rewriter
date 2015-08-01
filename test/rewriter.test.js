@@ -3,7 +3,7 @@ var t = require('chai').assert;
 var Rewriter = require('..');
 
 describe('rewriter', function () {
-  it('should rule rule with type', function () {
+  it('should add rule with type', function () {
     var rewriter = new Rewriter();
     rewriter.rule('custom', '/foo', '/bar');
     t.lengthOf(rewriter._rules, 1);
@@ -12,7 +12,7 @@ describe('rewriter', function () {
     t.equal(rewriter._rules[0].to, '/bar');
   });
 
-  it('should rule rule without type', function () {
+  it('should add rule without type', function () {
     var rewriter = new Rewriter();
     rewriter.rule('/foo', '/bar');
     t.lengthOf(rewriter._rules, 1);
@@ -21,7 +21,7 @@ describe('rewriter', function () {
     t.equal(rewriter._rules[0].to, '/bar');
   });
 
-  it('should rule rule using in', function () {
+  it('should add rule using in type', function () {
     var rewriter = new Rewriter();
     rewriter.in('/foo', '/bar');
     t.lengthOf(rewriter._rules, 1);
@@ -30,11 +30,20 @@ describe('rewriter', function () {
     t.equal(rewriter._rules[0].to, '/bar');
   });
 
-  it('should rule rule using out', function () {
+  it('should add rule using out type', function () {
     var rewriter = new Rewriter();
     rewriter.out('/foo', '/bar');
     t.lengthOf(rewriter._rules, 1);
     t.equal(rewriter._rules[0].type, 'out');
+    t.equal(rewriter._rules[0].from, '/foo');
+    t.equal(rewriter._rules[0].to, '/bar');
+  });
+
+  it('should add rule using object rule', function () {
+    var rewriter = new Rewriter();
+    rewriter.rule({from: '/foo', to: '/bar'});
+    t.lengthOf(rewriter._rules, 1);
+    t.equal(rewriter._rules[0].type, '*');
     t.equal(rewriter._rules[0].from, '/foo');
     t.equal(rewriter._rules[0].to, '/bar');
   });
