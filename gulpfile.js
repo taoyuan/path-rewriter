@@ -4,7 +4,6 @@ var path = require('path');
 var gulp = require('gulp');
 var excludeGitignore = require('gulp-exclude-gitignore');
 var mocha = require('gulp-mocha');
-var jshint = require('gulp-jshint');
 var istanbul = require('gulp-istanbul');
 var plumber = require('gulp-plumber');
 var coveralls = require('gulp-coveralls');
@@ -17,8 +16,6 @@ var handleErr = function (err) {
 gulp.task('static', function () {
   return gulp.src('**/*.js')
     .pipe(excludeGitignore())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'))
     .on('error', handleErr);
 });
 
