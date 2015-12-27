@@ -124,4 +124,11 @@ describe('rewriter', function () {
     var p = rewriter.rewrite('/foo..bar');
     t.equal(p, '/commits/foo/to/bar');
   });
+
+  it('should rewrite mqtt topic', function () {
+    var rewriter = new Rewriter();
+    rewriter.rule('$device/*', '$cloud/device/$1');
+    var p = rewriter.rewrite('$device/+/+/rssi');
+    t.equal(p, '$cloud/device/+/+/rssi');
+  });
 });
