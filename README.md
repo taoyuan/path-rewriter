@@ -1,4 +1,7 @@
 # path-rewriter 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/taoyuan/path-rewriter.svg)](https://greenkeeper.io/)
+
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A path rewriter for node.js
 
